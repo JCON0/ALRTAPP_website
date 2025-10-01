@@ -18,7 +18,7 @@ const highlightMenu = () => {
     const sections = [
         { element: document.querySelector('#home'), menu: document.querySelector('#home-page') },
         { element: document.querySelector('#about'), menu: document.querySelector('#about-page') },
-        { element: document.querySelector('#services'), menu: document.querySelector('#services-page') },
+        { element: document.querySelector('#features'), menu: document.querySelector('#features-page') },
         { element: document.querySelector('#sign-up'), menu: document.querySelector('#sign-up-page') }
     ];
     
@@ -26,6 +26,7 @@ const highlightMenu = () => {
     sections.forEach(section => {
         if (section.menu) {
             section.menu.classList.remove('highlight');
+            section.menu.classList.remove('highlight__button');
         }
     });
     
@@ -54,7 +55,12 @@ const highlightMenu = () => {
     
     // Highlight the current section
     if (currentSection && currentSection.menu) {
-        currentSection.menu.classList.add('highlight');
+        // Check if it's the sign-up button (last section)
+        if (currentSection === sections[3]) { // sign-up section
+            currentSection.menu.classList.add('highlight__button');
+        } else {
+            currentSection.menu.classList.add('highlight');
+        }
     }
 }
 
@@ -64,12 +70,19 @@ window.addEventListener('resize', highlightMenu); // Recalculate on window resiz
 
 //Close mobile menu when clicking on a menu item
 const hideMobileMenu = () => {
-    const menuBars = document.querySelector('.active');
-    if(window.innerWidth <= 768 && menuBars) {
-        menu.classList.toggle('active');
+    if(window.innerWidth <= 960) { // Match your mobile breakpoint
+        menu.classList.remove('active');
         menuLinks.classList.remove('active');
     }
 }
 
-menuLinks.addEventListener('click', hideMobileMenu);
+// Add event listeners to each navigation link individually
+document.querySelectorAll('.navbar__links').forEach(link => {
+    link.addEventListener('click', hideMobileMenu);
+});
+
+// Also close mobile menu when clicking the sign-up button
+document.querySelector('.button').addEventListener('click', hideMobileMenu);
+
+// Close when clicking the logo
 navLogo.addEventListener('click', hideMobileMenu);
