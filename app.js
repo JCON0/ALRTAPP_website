@@ -21,7 +21,7 @@ const highlightMenu = () => {
         { element: document.querySelector('#features'), menu: document.querySelector('#features-page') },
         { element: document.querySelector('#sign-up'), menu: document.querySelector('#sign-up-page') }
     ];
-    
+
     // Remove all highlights first
     sections.forEach(section => {
         if (section.menu) {

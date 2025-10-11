@@ -248,10 +248,11 @@ html {
 /* Hero Section */
 
 .hero {
-    background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
-    padding: 6rem 0 8rem 0;
+    background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-300) 100%);
     position: relative;
     overflow: hidden;
+    min-height: 30vh;
+    padding: 6rem 0 0 0;
 }
 
 .hero::before {
@@ -267,20 +268,20 @@ html {
 }
 
 .hero__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
+    gap: 1rem;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
     padding: 0 2rem;
     position: relative;
     z-index: 1;
+    height: 100%;
 }
 
 .hero__heading {
-    font-size: 3.5rem;
+    font-size: 5rem;
     font-weight: 800;
     color: var(--text-primary);
     margin-bottom: 1.5rem;
@@ -303,6 +304,20 @@ html {
     font-weight: 400;
 }
 
+.hero__image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hero__image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+}
+
 .highlight{
     border-bottom: 4px solid var(--primary-dark);
     border-radius: 0.5rem 0.5rem 0 0;
@@ -313,12 +328,56 @@ html {
 }
 
 @media screen and (max-width: 768px){
+    .hero {
+        min-height: 50vh;
+        padding: 4rem 0;
+        display: flex;
+        align-items: center;
+    }
+    
+    .hero__container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        height: auto;
+        min-height: auto;
+    }
+    
     .hero__heading{
-        font-size: 60px;
+        font-size: 4rem;
+        text-align: center;
+        margin-bottom: 1rem;
     }
 
     .hero__description{
-        font-size: 40px;
+        font-size: 1.125rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .hero__image {
+        order: -1;
+        justify-content: center;
+        height: auto;
+    }
+    
+    .hero__image img {
+        max-height: 300px;
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .hero__heading{
+        font-size: 2.5rem;
+    }
+
+    .hero__description{
+        font-size: 1rem;
+    }
+
+    .hero__image img {
+        max-height: 250px;
+        width: auto;
     }
 }
 
@@ -326,7 +385,8 @@ html {
 
 .main {
     background-color: var(--white);
-    padding: 6rem 0;
+    padding: 4rem 0;
+    min-height: auto;
 }
 
 .main__container {
@@ -404,6 +464,95 @@ html {
     box-shadow: var(--shadow-md);
 }
 
+/* Newsletter Form Styles */
+.newsletter__form {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.form__group {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.form__group:last-of-type {
+    flex-direction: column;
+}
+
+.email__input,
+.name__input {
+    flex: 1;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid var(--neutral-200);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background: var(--white);
+    color: var(--text-primary);
+    transition: all 0.2s ease-in-out;
+    outline: none;
+}
+
+.email__input:focus,
+.name__input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.email__input::placeholder,
+.name__input::placeholder {
+    color: var(--text-secondary);
+}
+
+.subscribe__btn {
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: var(--shadow-md);
+    white-space: nowrap;
+}
+
+.subscribe__btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.subscribe__btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-md);
+}
+
+.form__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.form__checkbox input[type="checkbox"] {
+    margin-top: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--primary-blue);
+}
+
+.form__checkbox label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    cursor: pointer;
+}
+
 .main__img--container{
     display: flex;
     justify-content: center;
@@ -448,6 +597,10 @@ html {
 /* Mobile responsive */
 
 @media screen and (max-width: 1100px) {
+    .main {
+        padding: 3rem 0;
+    }
+    
     .main__container{
         display: grid;
         grid-template-columns: 1fr;
@@ -455,41 +608,49 @@ html {
         justify-content: center;
         width: 100%;
         margin: 0 auto;
-        height: 90%;
+        gap: 2rem;
     }
 
     .main__img--container{
         display: flex;
         justify-content: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     .main__img--card{
-        height: 425px;
-        width: 425px;
+        height: 350px;
+        width: 350px;
     }
 
     .main__content{
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
     }
 
     .main__content h1{
-        font-size: 2.5rem;
-        margin-top: 2rem;
+        font-size: 1rem;
+        margin-top: 1rem;
     }
 
     .main__content h2{
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .main__content p{
         margin-top: 1rem;
-        font-size: 1.5rem;
+        font-size: 1.125rem;
     } 
 }
 
 @media screen and (max-width: 480px){
+    .main__container {
+        grid-template-columns: 1fr;
+    }
+    
+    .main__img--container {
+        order: -1;
+    }
+    
     .main__img--card{
         height: 250px;
         width: 250px;
@@ -518,6 +679,25 @@ html {
         padding: 12px 36px;
         margin: 2.5rem 0;
     }
+    
+    /* Newsletter form mobile styles */
+    .form__group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .subscribe__btn {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .form__checkbox {
+        margin-top: 1rem;
+    }
+    
+    .form__checkbox label {
+        font-size: 0.8rem;
+    }
 }
 
 /* Service section */
@@ -528,7 +708,8 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 6rem 0;
+    padding: 4rem 0;
+    min-height: auto;
 }
 
 .features h1{
@@ -560,7 +741,7 @@ html {
     border: 1px solid var(--neutral-200);
     transition: all 0.3s ease-in-out;
     height: auto;
-    min-height: 300px;
+    min-height: 200px;
 }
 
 .features__card:hover{
@@ -618,12 +799,18 @@ html {
 }
 
 @media screen and (max-width: 768px){
+    .features{
+        padding: 3rem 0;
+    }
+    
     .features__wrapper{
         grid-template-columns: 1fr;
+        padding: 0 1.5rem;
     }
 
     .features h1{
         font-size: 2rem;
+        margin-bottom: 2rem;
     }
 }
 
