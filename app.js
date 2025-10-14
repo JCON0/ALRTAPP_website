@@ -86,3 +86,34 @@ document.querySelector('.button').addEventListener('click', hideMobileMenu);
 
 // Close when clicking the logo
 navLogo.addEventListener('click', hideMobileMenu);
+
+// Smooth scroll from Learn More button to About section accounting for sticky navbar
+const learnMoreBtn = document.querySelector('.hero__button');
+const aboutSection = document.querySelector('#about');
+if(learnMoreBtn && aboutSection){
+    learnMoreBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const navbarHeight = 80; // keep in sync with CSS
+        const top = aboutSection.getBoundingClientRect().top + window.scrollY - (navbarHeight - 10); // slight visual spacing
+        window.scrollTo({ top, behavior: 'smooth' });
+    });
+}
+
+// Features cards activation (show description only on active card)
+const featureCards = document.querySelectorAll('.features__card');
+if(featureCards.length){
+    const setActive = (card)=>{
+        featureCards.forEach(c=> c.classList.toggle('is-active', c===card));
+    };
+    // initialize first
+    setActive(featureCards[0]);
+    featureCards.forEach(card=>{
+        card.setAttribute('tabindex','0');
+        card.addEventListener('click', ()=> setActive(card));
+        card.addEventListener('keydown', (e)=>{
+            if(e.key==='Enter' || e.key===' ') { e.preventDefault(); setActive(card);} 
+            if(e.key==='ArrowRight'){ e.preventDefault(); const next = card.nextElementSibling?.classList.contains('features__card') ? card.nextElementSibling : null; if(next) { next.focus(); setActive(next);} }
+            if(e.key==='ArrowLeft'){ e.preventDefault(); const prev = card.previousElementSibling?.classList.contains('features__card') ? card.previousElementSibling : null; if(prev) { prev.focus(); setActive(prev);} }
+        });
+    });
+}
