@@ -336,7 +336,7 @@ html {
     border-radius: 20px;
     margin: 15px;
     box-shadow: inset 0 -5px 50px 10px rgba(0, 0, 0, 0.3);
-    height: 87.5vh;
+    height: 85vh;
     position: relative;
     overflow: hidden;
   }
@@ -416,7 +416,7 @@ html {
     font-size: 2rem;
     text-align: center;
     color: var(--neutral-100);
-    margin: 0;
+    margin: 0px 16px 0px 16px;;
   }
 
   /* ---------- button stays on top ---------- */
@@ -436,27 +436,57 @@ html {
     transition: all 0.3s ease;
   }
 }
-
-@media screen and (max-width: 400px){
+@media screen and (max-width: 500px){
 
     .hero__content{
-    gap: 0;
+        gap: 0rem;
+    }
+    .hero__container{
+        gap: 0;
     }
 
     .hero__heading{
-        font-size: 2.75rem;
+        font-size: 3.5rem;
+        margin: 16px 16px 0px 16px;
     }
 
     .hero__description{
         font-size: 1.5rem;
-        margin: 25px;
+        margin: 5px;
+    }
+}
+
+
+@media screen and (max-width: 400px){
+
+    .hero{
+        height: 80vh;
+    }
+
+    .hero__container{
+        gap: 0;
+    }
+    .hero__content{
+        gap: 0;
+    }
+
+    .hero__heading{
+        margin: 16px 16px 0px 16px;
+        font-size: 2rem;
+        font-weight: 750;
+    }
+
+    .hero__description{
+        font-size: 1rem;
+        margin: 5px;
+        font-weight: 400;
     }
 
     .hero__image::after{
             background: linear-gradient(
             180deg,
             rgba(11, 5, 29, 0) 0%,
-            rgba(255, 255, 255, 0.25) 100%);
+            rgba(255, 255, 255, 0.5) 100%);
     }
 }
 
