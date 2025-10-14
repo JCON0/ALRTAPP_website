@@ -727,6 +727,11 @@ html {
     font-weight: 700;
 }
 
+.features h2{
+    min-width: 196px;
+    text-align: left;
+}
+
 .features p {
     font-size: 1rem;
     color: var(--text-secondary);
@@ -762,6 +767,7 @@ html {
     background: var(--neutral-300);
     border-radius: 1rem;
     margin-bottom: 1rem;
+    min-height: 300px;
 }
 
 .features__btn{
@@ -773,6 +779,7 @@ html {
     transition: all 0.2s ease-in-out;
     font-weight: 600;
     text-decoration: none;
+    background: transparent;
 }
 
 .features__btn a{
@@ -780,6 +787,7 @@ html {
     text-decoration: none;
 }
 
+/* Responsive features */
 @media (max-width: 900px) {
     .features h1 { 
         font-size: 2.25rem; 
@@ -787,9 +795,26 @@ html {
     .features__card { 
         min-height: 240px; 
     }
+    .features__grid { 
+    grid-template-columns: 1fr 1fr; 
+    gap: 2rem; 
+    }
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 775px) {
+    .features h2 { 
+        font-size: 1.75rem; 
+    }
+    .features p { 
+        font-size: 1rem; 
+    }
+    .features__card { 
+        min-height: 260px; 
+        padding: 2rem 1.5rem; 
+    }
+}
+
+@media (max-width: 650px) {
     .features { 
         padding: 3rem 1.25rem; 
     }
@@ -798,6 +823,7 @@ html {
         margin-bottom: 2.25rem; 
     }
     .features__grid { 
+        grid-template-columns: 1fr 1fr;
         gap: 1.5rem; 
     }
     .features__card { 
@@ -805,7 +831,7 @@ html {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
     .features h1 { 
         font-size: 2rem; 
     }
@@ -823,10 +849,19 @@ html {
 }
 
 @media (max-width: 400px) {
-    .features h1 { font-size: 1.75rem; }
-    .features p { font-size: 0.875rem; }
-    .features__grid { grid-template-columns: 1fr; gap: 1rem; }
-    .features__card { min-height: auto; padding: 1.25rem 1rem; }
+    .features h1 { 
+        font-size: 1.75rem; 
+    }
+    .features p { 
+        font-size: 0.875rem; 
+    }
+    .features__grid { 
+        grid-template-columns: 1fr; gap: 1rem; 
+    }
+    .features__card { 
+        min-height: auto; 
+        padding: 1.25rem 1rem; 
+    }
 }   
 
 
