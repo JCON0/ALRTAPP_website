@@ -512,7 +512,7 @@ html {
 @media screen and (max-width: 400px){
 
     .hero{
-        height: 67.5vh;
+        height: 70vh;
     }
 
     .hero__container{
