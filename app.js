@@ -94,7 +94,18 @@ if(learnMoreBtn && aboutSection){
     learnMoreBtn.addEventListener('click', (e)=>{
         e.preventDefault();
         const navbarHeight = 80; // keep in sync with CSS
-        const top = aboutSection.getBoundingClientRect().top + window.scrollY - (navbarHeight - 10); // slight visual spacing
+        const top = aboutSection.getBoundingClientRect().top + window.scrollY; // slight visual spacing
+        window.scrollTo({ top, behavior: 'smooth' });
+    });
+}
+
+const readMoreBtn = document.querySelector('.main__btn');
+const featuresSection = document.querySelector('#features');
+if(readMoreBtn && featuresSection){
+    readMoreBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const navbarHeight = 80; // keep in sync with CSS
+        const top = featuresSection.getBoundingClientRect().top + window.scrollY; // slight visual spacing
         window.scrollTo({ top, behavior: 'smooth' });
     });
 }
