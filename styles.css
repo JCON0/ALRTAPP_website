@@ -273,10 +273,10 @@ html {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 1rem;
-    max-width: 100%;
+    max-width: 1200px;
     height: 100%;
     justify-content: center;
-    margin: 0px 150px;
+    margin: 0px auto;
     padding: 4rem 2rem;
     position: relative;
     z-index: 1;
@@ -537,7 +537,7 @@ html {
 
 
 
-/* About section */
+/* Main (About) section */
 
 .main {
     background-color: var(--white);
@@ -637,7 +637,7 @@ html {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 00px;
+    max-height: 500px;
     object-fit: contain;
 }
 
@@ -694,17 +694,17 @@ html {
     }
 
     .main__content h1{
-        font-size: 2rem;
+        font-size: 1.25rem;
         margin-top: 1rem;
     }
 
     .main__content h2{
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .main__content p{
         margin-top: 1rem;
-        font-size:2rem;
+        font-size:1.25rem;
     } 
 }
 
@@ -819,7 +819,7 @@ html {
         margin-bottom: 2.25rem; 
     }
     .features__grid { 
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 1.5rem; 
     }
     .features__card { 
@@ -846,10 +846,11 @@ html {
 
 @media (max-width: 400px) {
     .features h1 { 
-        font-size: 1.75rem; 
+        font-size: 2rem; 
     }
     .features p { 
-        font-size: 0.875rem; 
+        font-size: 1rem; 
+
     }
     .features__grid { 
         grid-template-columns: 1fr; gap: 1rem; 
@@ -1074,7 +1075,7 @@ html {
 
     .signup__content p {
         margin-top: 1rem;
-        font-size: 1.125rem;
+        font-size: 1.25rem;
     }
 
     .signup__form{
@@ -1097,7 +1098,7 @@ html {
 @media screen and (max-width: 768px) {
 
     .signup__content h1 {
-        font-size: 3rem;
+        font-size: 1.25rem;
         margin-top: 1rem;
 
     }
@@ -1129,16 +1130,17 @@ html {
         width: 100%;
         justify-content: center;
     }
+
+    .signup__img-container {
+        order: -1;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .signup__container {
         grid-template-columns: 1fr;
     }
-    
-    .signup__img-container {
-        order: -1;
-    }
+
     
     .signup__img-card {
         height: 250px;
@@ -1148,9 +1150,13 @@ html {
     .signup__img-card .fa-users {
         font-size: 4rem;
     }
-
+    /*
+    .signup__content{
+        text-align:left;
+    }
+    */
     .signup__content h1 {
-        font-size: 2rem;
+        font-size: 1.25rem;
         margin-top: 3rem;
     }
 
@@ -1159,8 +1165,9 @@ html {
     }
 
     .signup__content p {
+        font-size: 1.25rem;
         margin-top: 2rem;
-        font-size: 1.5rem;
+
     }
 
     .signup__btn {
