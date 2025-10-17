@@ -380,7 +380,7 @@ html {
     border-radius: 40px;
     margin: 15px;
     box-shadow: inset 0 -5px 50px 10px rgba(0, 0, 0, 0.3);
-    height: 75vh;
+    height: 85vh;
     position: relative;
     overflow: hidden;
   }
@@ -512,7 +512,7 @@ html {
 @media screen and (max-width: 400px){
 
     .hero{
-        height: 80vh;
+        height: 75vh;
     }
 
     .hero__container{
