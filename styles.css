@@ -764,6 +764,15 @@ html {
     border-radius: 1rem;
     margin-bottom: 1rem;
     min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.features__card i, .features__card svg {
+    color: var(--primary-blue);
+    font-size: 7.5rem; /* tweak as needed */
+    margin: 0; /* let the container center it */
 }
 
 .features__btn{
@@ -1022,14 +1031,13 @@ html {
 .signup__img-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-xl);
-    border-color: var(--accent-green);
-}
+ }
 
-.signup__img-card .fa-users {
+.signup__img-card{
     font-size: 6rem;
     margin: 0;
     color: var(--primary-blue);
-    opacity: 0.8;
+    opacity: 1;
 }
 
 /* Mobile responsive for signup */
