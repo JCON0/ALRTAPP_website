@@ -91,8 +91,7 @@ navLogo.addEventListener('click', hideMobileMenu);
 const learnMoreBtn = document.querySelector('.hero__button');
 const aboutSection = document.querySelector('#about');
 if(learnMoreBtn && aboutSection){
-    learnMoreBtn.addEventListener('click', (e)=>{
-        e.preventDefault();
+    learnMoreBtn.addEventListener('click', (e)=>{import { SpeedInsights } from "@vercel/speed-insights/next"        e.preventDefault();
         const navbarHeight = 80; // keep in sync with CSS
         const top = aboutSection.getBoundingClientRect().top + window.scrollY; // slight visual spacing
         window.scrollTo({ top, behavior: 'smooth' });
