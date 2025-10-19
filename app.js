@@ -128,3 +128,80 @@ if(featureCards.length){
         });
     });
 }
+
+// -------------------------
+// Signup form handling
+// -------------------------
+(function setupSignupForm(){
+    const form = document.querySelector('.signup__form');
+    if(!form) return;
+
+    const emailInput = form.querySelector('#email');
+    const nameInput = form.querySelector('#name');
+    const privacyInput = form.querySelector('#privacy');
+    const hpInput = form.querySelector('input[name="hp"]');
+
+    // Create or reuse a status message element
+        let status = form.querySelector('.signup__status');
+
+    const setStatus = (type, message)=>{
+        status.classList.remove('is-success','is-error','is-loading');
+        if(type) status.classList.add(type);
+        status.textContent = message || '';
+    };
+
+    const validateEmail = (value)=>{
+        // Simple RFC-ish email check
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).toLowerCase());
+    };
+
+    form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+
+        // Basic validation
+        const email = emailInput?.value?.trim();
+        const name = nameInput?.value?.trim();
+        const hp = hpInput?.value?.trim();
+        const privacyChecked = !!privacyInput?.checked;
+
+        if(!email || !validateEmail(email)){
+            setStatus('is-error', 'Please enter a valid email address.');
+            emailInput?.focus();
+            return;
+        }
+        if(!privacyChecked){
+            setStatus('is-error', 'Please accept the privacy policy to proceed.');
+            privacyInput?.focus();
+            return;
+        }
+
+        // Simulate async submission (replace URL with your backend endpoint)
+        setStatus('is-loading', 'Submitting...');
+        const submitBtn = form.querySelector('.signup__btn');
+        const prevDisabled = submitBtn?.disabled;
+        if(submitBtn) submitBtn.disabled = true;
+
+        try {
+            // Example POST; backend can be a server, serverless function, Google Apps Script, etc.
+                    const res = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email, name, hp })
+            });
+
+            if(!res.ok){
+                throw new Error('Request failed');
+            }
+
+            setStatus('is-success', 'Thanks! You\'re on the list.');
+            form.reset();
+        } catch(err){
+            console.error(err);
+            setStatus('is-error', 'Something went wrong. Please try again later.');
+        } finally {
+            if(submitBtn) submitBtn.disabled = prevDisabled || false;
+            // Auto-hide loading class
+            status.classList.remove('is-loading');
+        }
+    });
+})();

@@ -1351,3 +1351,13 @@ html {
         font-size: 0.75rem;
     }
 }
+
+/* Signup status messages */
+.signup__status {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    min-height: 1.25rem; /* reserve space so layout doesn't jump */
+}
+.signup__status.is-loading { color: var(--text-secondary); }
+.signup__status.is-success { color: var(--accent-green); }
+.signup__status.is-error { color: var(--accent-red); }
