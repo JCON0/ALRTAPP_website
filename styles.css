@@ -329,12 +329,14 @@ html {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 300;
+    text-decoration: none;
 }
 
 .hero__button:hover{
     box-shadow: var(--shadow-xl);
     transform: translateY(-1px);
 }
+
 
 @media screen and (max-width: 1150px) {
     .hero__container{
@@ -465,10 +467,9 @@ html {
   }
 
   /* ---------- button stays on top ---------- */
-  .hero__button {
+  .hero__button{
     position: absolute;
     bottom: 2.5%;
-
     z-index: 4; /* highest layer */
     background: var(--primary-blue);
     color: #fff;
@@ -477,6 +478,9 @@ html {
     border-radius: 15px;
     font-size: 1.1rem;
     cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+
   }
 }
 
@@ -586,38 +590,23 @@ html {
 }
 
 .main__btn{
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
     background: var(--primary-blue);
-    padding: 0.875rem 2rem;
+    color: var(--white);
     border: none;
-    border-radius: 0.75rem;
-    color: var(--white);
-    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    font-size: 1.25rem;
     cursor: pointer;
-    position: relative;
+    transition: all 0.3s ease;
+    font-weight: 300;
+    text-decoration: none;
     transition: all 0.2s ease-in-out;
-    outline: none;
-    box-shadow: var(--shadow-md);
-    text-decoration: none;
-}
 
-.main__btn a {
-    color: var(--white);
-    text-decoration: none;
 }
 
 .main__btn:hover{
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-.main__btn:active{
-    transform: translateY(0);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-100px);
 }
 
 .main__img--container{

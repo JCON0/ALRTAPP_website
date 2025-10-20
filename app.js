@@ -87,46 +87,53 @@ document.querySelector('.button').addEventListener('click', hideMobileMenu);
 // Close when clicking the logo
 navLogo.addEventListener('click', hideMobileMenu);
 
+// Helper: smooth scroll to element accounting for sticky navbar height
+const getNavbarHeight = () => {
+    const nav = document.querySelector('.navbar');
+    return nav ? (nav.offsetHeight - 80 ) : 0;
+};
+
+const smoothScrollTo = (el) => {
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - getNavbarHeight();
+    window.scrollTo({ top, behavior: 'smooth' });
+};
+
 // Smooth scroll from Learn More button to About section accounting for sticky navbar
 const learnMoreBtn = document.querySelector('.hero__button');
 const aboutSection = document.querySelector('#about');
 if(learnMoreBtn && aboutSection){
-    learnMoreBtn.addEventListener('click', (e)=>{import { SpeedInsights } from "@vercel/speed-insights/next"        e.preventDefault();
-        const navbarHeight = 80; // keep in sync with CSS
-        const top = aboutSection.getBoundingClientRect().top + window.scrollY; // slight visual spacing
-        window.scrollTo({ top, behavior: 'smooth' });
+    learnMoreBtn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        smoothScrollTo(aboutSection);
     });
 }
 
+//smooth scroll from Features button to Features section accounting for sticky navbar
 const readMoreBtn = document.querySelector('.main__btn');
 const featuresSection = document.querySelector('#features');
 if(readMoreBtn && featuresSection){
     readMoreBtn.addEventListener('click', (e)=>{
         e.preventDefault();
-        const navbarHeight = 80; // keep in sync with CSS
-        const top = featuresSection.getBoundingClientRect().top + window.scrollY; // slight visual spacing
-        window.scrollTo({ top, behavior: 'smooth' });
+        smoothScrollTo(featuresSection);
     });
 }
 
-// Features cards activation (show description only on active card)
-const featureCards = document.querySelectorAll('.features__card');
-if(featureCards.length){
-    const setActive = (card)=>{
-        featureCards.forEach(c=> c.classList.toggle('is-active', c===card));
-    };
-    // initialize first
-    setActive(featureCards[0]);
-    featureCards.forEach(card=>{
-        card.setAttribute('tabindex','0');
-        card.addEventListener('click', ()=> setActive(card));
-        card.addEventListener('keydown', (e)=>{
-            if(e.key==='Enter' || e.key===' ') { e.preventDefault(); setActive(card);} 
-            if(e.key==='ArrowRight'){ e.preventDefault(); const next = card.nextElementSibling?.classList.contains('features__card') ? card.nextElementSibling : null; if(next) { next.focus(); setActive(next);} }
-            if(e.key==='ArrowLeft'){ e.preventDefault(); const prev = card.previousElementSibling?.classList.contains('features__card') ? card.previousElementSibling : null; if(prev) { prev.focus(); setActive(prev);} }
-        });
+// Intercept navbar hash links to use smoothScrollTo with correct offset
+const navHashLinks = document.querySelectorAll('.navbar a[href^="#"]');
+navHashLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+            e.preventDefault();
+            smoothScrollTo(targetEl);
+            hideMobileMenu();
+        }
     });
-}
+});
+
 
 // -------------------------
 // Signup form handling
