@@ -147,6 +147,16 @@ navHashLinks.forEach(link => {
     const privacyInput = form.querySelector('#privacy');
     const hpInput = form.querySelector('input[name="hp"]');
 
+    // Count how many times the Subscribe button is clicked (console output only)
+    let subscribeClickCount = 0;
+    const subscribeBtn = form.querySelector('.signup__btn');
+    if (subscribeBtn) {
+        subscribeBtn.addEventListener('click', () => {
+            subscribeClickCount++;
+            console.log('Subscribe button clicks:', subscribeClickCount);
+        });
+    }
+
     // Create or reuse a status message element
         let status = form.querySelector('.signup__status');
 
