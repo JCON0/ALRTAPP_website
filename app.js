@@ -143,9 +143,10 @@ navHashLinks.forEach(link => {
     if(!form) return;
 
     const emailInput = form.querySelector('#email');
-    const nameInput = form.querySelector('#name');
+    const firstNameInput = form.querySelector('#first-name');
+    const lastNameInput = form.querySelector('#last-name');
     const privacyInput = form.querySelector('#privacy');
-    const hpInput = form.querySelector('input[name="hp"]');
+    const hpInput = form.querySelector('input[name="_gotcha"]');
 
     // Count how many times the Subscribe button is clicked (console output only)
     let subscribeClickCount = 0;
@@ -176,7 +177,8 @@ navHashLinks.forEach(link => {
 
         // Basic validation
         const email = emailInput?.value?.trim();
-        const name = nameInput?.value?.trim();
+        const firstName = firstNameInput?.value?.trim();
+        const lastName = lastNameInput?.value?.trim();
         const hp = hpInput?.value?.trim();
         const privacyChecked = !!privacyInput?.checked;
 
@@ -191,7 +193,7 @@ navHashLinks.forEach(link => {
             return;
         }
 
-        setStatus('is-loading', 'Submitting...');
+        setStatus('is-loading', 'Submitting...', 'Submitted');
         const submitBtn = form.querySelector('.signup__btn');
         if (submitBtn) submitBtn.disabled = true;
 

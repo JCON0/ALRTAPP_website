@@ -939,6 +939,68 @@ html {
     outline: none;
 }
 
+/* visually hidden but accessible label utility */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.signup__select {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border: 2px solid var(--neutral-200);
+    border-radius: 0.5rem;
+    background: var(--white);
+    color: var(--text-primary);
+    font-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* custom dropdown arrow (uses currentColor so it matches text color) */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='currentColor' d='M5.25 7.5l4.5 4.5 4.5-4.5' stroke='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem 1rem;
+    padding-right: 3rem; /* space for arrow */
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.signup__select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+
+.signup__select:valid {
+  color: var(--text-primary);
+}
+
+.signup__select:invalid {
+  color: var(--text-secondary);
+}
+
+/* Style options where possible (desktop browsers) */
+.signup__select option {
+    color: var(--text-primary);
+    background: var(--white);
+}
+.signup__select option:first-child {
+    color: var(--text-secondary);
+}
+
+/* Use focus-visible so mouse clicks don't show outline unnecessarily */
+.signup__select:focus:not(:focus-visible) {
+    box-shadow: none;
+}
+
 .signup__email-input:focus,
 .signup__name-input:focus {
     border-color: var(--primary-blue);
@@ -1058,7 +1120,6 @@ html {
 
     .signup__content {
         text-align: center;
-        margin-bottom: 2rem;
     }
 
     .signup__content h1 {
@@ -1079,7 +1140,7 @@ html {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 2rem auto 0;
+        margin: 2rem auto;
         width: 100%;
         max-width: 500px;
     }

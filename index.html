@@ -129,10 +129,30 @@
                 </div>
                 <div class="signup__form-group">
                     <input type="text" 
-                           id="name" 
-                           name="name" 
-                           placeholder="Your name (optional)" 
+                           id="first-name" 
+                           name="firstName" 
+                           placeholder="First name" 
+                           required
                            class="signup__name-input">
+                </div>
+                <div class="signup__form-group">
+                    <input type="text" 
+                           id="last-name" 
+                           name="lastName" 
+                           placeholder="Last name" 
+                           required
+                           class="signup__name-input">
+                </div>
+                <div class="signup__form-group">
+                    <label for="referrer" class="sr-only">How did you hear about us?</label>
+                    <select id="referrer" name="referrer" class="signup__select" required>
+                        <option value="" disabled selected hidden>How did you hear about us?</option>
+                        <option value="search">Search engine</option>
+                        <option value="social">Social media</option>
+                        <option value="friend">Friend or family</option>
+                        <option value="event">Event / Meetup</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
                 <!-- Honeypot field (bots fill this, humans won't) -->
                 <div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;">
