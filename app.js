@@ -191,33 +191,13 @@ navHashLinks.forEach(link => {
             return;
         }
 
-        // Simulate async submission (replace URL with your backend endpoint)
         setStatus('is-loading', 'Submitting...');
         const submitBtn = form.querySelector('.signup__btn');
-        const prevDisabled = submitBtn?.disabled;
-        if(submitBtn) submitBtn.disabled = true;
+        if (submitBtn) submitBtn.disabled = true;
 
-        try {
-            // Example POST; backend can be a server, serverless function, Google Apps Script, etc.
-                    const res = await fetch('/api/subscribe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email, name, hp })
-            });
-
-            if(!res.ok){
-                throw new Error('Request failed');
-            }
-
-            setStatus('is-success', 'Thanks! You\'re on the list.');
-            form.reset();
-        } catch(err){
-            console.error(err);
-            setStatus('is-error', 'Something went wrong. Please try again later.');
-        } finally {
-            if(submitBtn) submitBtn.disabled = prevDisabled || false;
-            // Auto-hide loading class
-            status.classList.remove('is-loading');
-        }
+        // Allow the browser to perform a normal POST to the form action (Formspree)
+        // This will navigate away / show Formspree response page unless you configured a redirect
+        form.submit();
+        return;
     });
 })();
