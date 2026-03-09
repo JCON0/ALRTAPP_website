@@ -1,221 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALRTAPP | Location Sharing & Safety</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/877ea0a72f.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/png" href="Images/Logo-blue-2.svg"/>
-<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALRTAPP — Personal Safety, Always On</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<nav class = "navbar">
-    <div class = "navbar__container">
-        <a href="#home" id = "navbar__logo">
-            <img src="Images/Logo-blue-2.svg" alt="ALRT Logo" class="navbar__logo-img">
-            <span class="navbar__logo-text">ALRTAPP</span>
-        </a>
-        <div class="navbar__toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <ul class="navbar__menu">
-            <li class="navbar__item">
-                <a href="#home" class="navbar__links" id="home-page">Home</a>
-            </li>
-            <li class="navbar__item">
-                <a href="#about" class="navbar__links" id="about-page">About</a>
-            </li>
-            <li class="navbar__item">
-                <a href="#features" class="navbar__links" id="features-page">Features</a>
-            </li>
-            <li class="navbar__btn">
-                <a href="#sign-up" class="button" id="sign-up-page">Sign up</a>
-            </li>
-        </ul>
-    </div>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" style="display:flex;align-items:center;text-decoration:none;">
+    <svg width="88" height="58" viewBox="0 0 176 116" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+      <defs>
+        <linearGradient id="nav_grad" x1="2" y1="23" x2="171" y2="94" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#FB923C"/>
+          <stop offset="100%" stop-color="#C2410C"/>
+        </linearGradient>
+        <linearGradient id="nav_dot_grad" x1="151" y1="75" x2="171" y2="94" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#FED7AA"/>
+          <stop offset="100%" stop-color="#EA580C"/>
+        </linearGradient>
+      </defs>
+      <path d="M19.3636 93.8182C16.0227 93.8182 13.0682 93.2727 10.5 92.1818C7.95455 91.0682 5.95455 89.3864 4.5 87.1364C3.04545 84.8864 2.31818 82.0227 2.31818 78.5455C2.31818 75.6818 2.80682 73.2386 3.78409 71.2159C4.76136 69.1705 6.125 67.5 7.875 66.2045C9.625 64.9091 11.6591 63.9205 13.9773 63.2386C16.3182 62.5568 18.8409 62.1136 21.5455 61.9091C24.4773 61.6818 26.8295 61.4091 28.6023 61.0909C30.3977 60.75 31.6932 60.2841 32.4886 59.6932C33.2841 59.0795 33.6818 58.2727 33.6818 57.2727V57.1364C33.6818 55.7727 33.1591 54.7273 32.1136 54C31.0682 53.2727 29.7273 52.9091 28.0909 52.9091C26.2955 52.9091 24.8295 53.3068 23.6932 54.1023C22.5795 54.875 21.9091 56.0682 21.6818 57.6818H4.36364C4.59091 54.5 5.60227 51.5682 7.39773 48.8864C9.21591 46.1818 11.8636 44.0227 15.3409 42.4091C18.8182 40.7727 23.1591 39.9545 28.3636 39.9545C32.1136 39.9545 35.4773 40.3977 38.4545 41.2841C41.4318 42.1477 43.9659 43.3636 46.0568 44.9318C48.1477 46.4773 49.7386 48.2955 50.8295 50.3864C51.9432 52.4545 52.5 54.7045 52.5 57.1364V93H34.9091V85.6364H34.5C33.4545 87.5909 32.1818 89.1705 30.6818 90.375C29.2045 91.5795 27.5114 92.4545 25.6023 93C23.7159 93.5455 21.6364 93.8182 19.3636 93.8182ZM25.5 81.9545C26.9318 81.9545 28.2727 81.6591 29.5227 81.0682C30.7955 80.4773 31.8295 79.625 32.625 78.5114C33.4205 77.3977 33.8182 76.0455 33.8182 74.4545V70.0909C33.3182 70.2955 32.7841 70.4886 32.2159 70.6705C31.6705 70.8523 31.0795 71.0227 30.4432 71.1818C29.8295 71.3409 29.1705 71.4886 28.4659 71.625C27.7841 71.7614 27.0682 71.8864 26.3182 72C24.8636 72.2273 23.6705 72.6023 22.7386 73.125C21.8295 73.625 21.1477 74.25 20.6932 75C20.2614 75.7273 20.0455 76.5455 20.0455 77.4545C20.0455 78.9091 20.5568 80.0227 21.5795 80.7955C22.6023 81.5682 23.9091 81.9545 25.5 81.9545Z" fill="url(#nav_grad)"/>
+      <path d="M73.5909 23.1818V93H54.7727V23.1818H73.5909Z" fill="url(#nav_grad)"/>
+      <path d="M76.7727 93V40.6364H95.0455V50.5909H95.5909C96.5455 46.9091 98.0568 44.2159 100.125 42.5114C102.216 40.8068 104.659 39.9545 107.455 39.9545C108.273 39.9545 109.08 40.0227 109.875 40.1591C110.693 40.2727 111.477 40.4432 112.227 40.6705V56.7273C111.295 56.4091 110.148 56.1705 108.784 56.0114C107.42 55.8523 106.25 55.7727 105.273 55.7727C103.432 55.7727 101.773 56.1932 100.295 57.0341C98.8409 57.8523 97.6932 59.0114 96.8523 60.5114C96.0114 61.9886 95.5909 63.7273 95.5909 65.7273V93H76.7727Z" fill="url(#nav_grad)"/>
+      <path d="M149 40.6364V54.2727H114.5V40.6364H149ZM121.182 28.0909H140V76.1591C140 76.8864 140.125 77.5 140.375 78C140.625 78.4773 141.011 78.8409 141.534 79.0909C142.057 79.3182 142.727 79.4318 143.545 79.4318C144.114 79.4318 144.773 79.3636 145.523 79.2273C146.295 79.0909 146.864 78.9773 147.227 78.8864L149.955 92.1136C149.114 92.3636 147.909 92.6705 146.341 93.0341C144.795 93.3977 142.955 93.6364 140.818 93.75C136.5 93.9773 132.875 93.5341 129.943 92.4205C127.011 91.2841 124.807 89.5 123.33 87.0682C121.852 84.6364 121.136 81.5909 121.182 77.9318V28.0909Z" fill="url(#nav_grad)"/>
+      <path d="M161 94.0909C158.364 94.0909 156.102 93.1705 154.216 91.3295C152.352 89.4659 151.432 87.2045 151.455 84.5455C151.432 81.9545 152.352 79.7386 154.216 77.8977C156.102 76.0568 158.364 75.1364 161 75.1364C163.5 75.1364 165.705 76.0568 167.614 77.8977C169.545 79.7386 170.523 81.9545 170.545 84.5455C170.523 86.3182 170.057 87.9318 169.148 89.3864C168.261 90.8182 167.102 91.9659 165.67 92.8295C164.239 93.6705 162.682 94.0909 161 94.0909Z" fill="url(#nav_dot_grad)"/>
+    </svg>
+  </a>
+  <div class="nav-status"><div class="nav-status-dot"></div>Systems operational</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#sign-up">Sign Up</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('sign-up').scrollIntoView({behavior:'smooth'})">Early Access</button>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- Hero section -->
-<div class="hero" id="home">
-    <div class="hero__container">
-        <div class="hero__content">
-            <h1 class="hero__heading">Stay alert with <span>ALRTAPP</span></h1>
-            <p class="hero__description">The personal safety companion</p>
-            <a class="hero__button" href="#about">Learn More</a>
-        </div>
-        <div class="hero__image">
-            <img src="Images/prototype_1.png" alt="Hero Image">
-        </div>
-        
-    </div>
+<!-- MOBILE MENU DRAWER -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#features" onclick="closeMobileMenu()">Features</a>
+  <a href="#sign-up" onclick="closeMobileMenu()">Sign Up</a>
+  <button class="mobile-cta" onclick="closeMobileMenu(); document.getElementById('sign-up').scrollIntoView({behavior:'smooth'})">Get Early Access →</button>
 </div>
 
-<!-- About section -->
-<div class = "main" id="about">
-    <div class = "main__container">
-        <div class = "main__img--container">
-            <div class = "main__img--card"><img src="Images/prototype_2.png" alt="Hero Image"></div>
-        </div>
-        <div class="main__content">
-            <h1>What do we do?</h1>
-            <h2>ALRTAPP is the newest location-sharing personal safety app</h2>
-            <p>Whether you're at home or on the go, ALRTAPP is the only community-driven safety app that keeps you connected, providing real-time location sharing and safety alerts to help you stay informed and safe.</p>
-            <!-- <p>Read our blog to find out more</p> -->
-            <a class="main__btn" href="#features">Features</a>
-        </div>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-label">Live</div>
+  <div class="ticker-track">
+    <div class="ticker-inner">
+      <div class="ticker-item"><span class="t-dot" style="background:var(--safe)"></span>Location sharing active<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--orange)"></span>Community alert: Northside — 0.3mi<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--blue)"></span>2 contacts checked in safe<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--caution)"></span>App update v0.9.2 available<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--danger)"></span>SOS feature in testing<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--safe)"></span>Join the waitlist — be first<span class="t-sep"> · </span></div>
+      <!-- Duplicate set for seamless loop -->
+      <div class="ticker-item"><span class="t-dot" style="background:var(--safe)"></span>Location sharing active<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--orange)"></span>Community alert: Northside — 0.3mi<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--blue)"></span>2 contacts checked in safe<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--caution)"></span>App update v0.9.2 available<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--danger)"></span>SOS feature in testing<span class="t-sep"> · </span></div>
+      <div class="ticker-item"><span class="t-dot" style="background:var(--safe)"></span>Join the waitlist — be first<span class="t-sep"> · </span></div>
     </div>
+  </div>
 </div>
 
-<!-- Features section -->
-<section class="features" id="features">
-    <h1>Our Features</h1>
-    <p>ALRTAPP is currently under development. Some features may not currently be available.</p>
-    <div class="features__grid">
-        <article class="features__card">
-            <div class="features__image"><i class="fas fa-exclamation-triangle"></i></div>
-            <h2>Emergency SOS</h2>
-            <!-- <button class ="features__btn"><a href="#">Read More</a></button> -->
-        </article>
-        <article class="features__card">
-            <div class="features__image"><i class="fas fa-map-marker-alt"></i></div>
-            <h2>Location Sharing</h2>
-            <!-- <button class ="features__btn"><a href="">Read More</a></button> -->
-        </article>
-        <article class="features__card">
-            <div class="features__image"><i class="fas fa-user-friends"></i></div>
-            <h2>Community Alerts</h2>
-            <!-- <button class ="features__btn"><a href="">Read More</a></button> -->
-        </article>
-        <article class="features__card">
-            <div class="features__image"><i class="fas fa-newspaper"></i></div>
-            <h2>Local News</h2>
-            <!-- <button class ="features__btn"><a href="">Read More</a></button> -->
-        </article>
-        <article class="features__card">
-            <div class="features__image"><i class="fas fa-house-user"></i></div>
-            <h2>Meet Neighbours</h2>
-            <!-- <button class ="features__btn"><a href="">Read More</a></button> -->
-        </article>
-        <article class="features__card">
-            <div class="features__image"><i class="fas fa-shield-alt"></i></div>
-            <h2>Safety Tips</h2>
-            <!-- <button class ="features__btn"><a href="">Read More</a></button> -->
-        </article>
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left">
+    <div class="hero-tag">Personal Safety — Always On</div>
+    <h1>
+      <span class="line-ghost">Stay</span>
+      <span class="line-solid">Alert.</span>
+      <span class="line-orange">Stay Safe.</span>
+    </h1>
+    <p class="hero-desc">The community-driven safety companion that keeps you connected in real time. Location sharing, local alerts, and one-tap SOS — wherever you go.</p>
+    <div class="hero-ctas">
+      <button class="cta-main" onclick="document.getElementById('sign-up').scrollIntoView({behavior:'smooth'})">
+        Get Early Access <span class="cta-arrow">→</span>
+      </button>
+      <button class="cta-sec" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">
+        Features
+      </button>
     </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="ops-panel">
+      <div class="ops-header">
+        <div class="ops-header-label">Live Operations View</div>
+        <div class="ops-time" id="clock">--:--:--</div>
+      </div>
+      <div class="ops-map">
+        <div class="map-road h"></div>
+        <div class="map-road v"></div>
+        <div class="map-alert" style="top:20%; left:52%;">Incident reported</div>
+        <div class="map-user">
+          <div class="pulse-ring"></div>
+          <div class="pulse-ring"></div>
+          <div class="pulse-ring"></div>
+          <div class="user-dot"></div>
+        </div>
+        <div class="map-pin" style="top:26%; left:56%; color:var(--safe);">
+          <div class="pin-dot" style="background:var(--safe); box-shadow:0 0 8px var(--safe);"></div>
+          <div class="pin-line"></div>
+          <div class="pin-label" style="color:var(--safe);">Sarah · Safe</div>
+        </div>
+        <div class="map-pin" style="top:63%; left:20%; color:var(--blue);">
+          <div class="pin-dot" style="background:var(--blue);"></div>
+          <div class="pin-line"></div>
+          <div class="pin-label" style="color:var(--blue);">James · Moving</div>
+        </div>
+        <div class="map-pin" style="top:72%; left:64%; color:var(--mist);">
+          <div class="pin-dot" style="background:var(--mist);"></div>
+          <div class="pin-line"></div>
+          <div class="pin-label" style="color:var(--mist);">Mum · Home</div>
+        </div>
+      </div>
+      <div class="ops-feed">
+        <div class="feed-header">
+          Activity Feed
+          <div class="feed-live">Live</div>
+        </div>
+        <div class="feed-item">
+          <div class="feed-type" style="background:var(--danger);"></div>
+          <div class="feed-text"><strong>Community Alert</strong> — Incident 0.3mi north</div>
+          <div class="feed-time">now</div>
+        </div>
+        <div class="feed-item">
+          <div class="feed-type" style="background:var(--safe);"></div>
+          <div class="feed-text"><strong>Sarah</strong> checked in safe at home</div>
+          <div class="feed-time">2m</div>
+        </div>
+        <div class="feed-item">
+          <div class="feed-type" style="background:var(--blue);"></div>
+          <div class="feed-text"><strong>James</strong> started sharing his route</div>
+          <div class="feed-time">5m</div>
+        </div>
+        <div class="feed-item">
+          <div class="feed-type" style="background:var(--caution);"></div>
+          <div class="feed-text"><strong>Safety Tip</strong> — Well-lit route suggested</div>
+          <div class="feed-time">12m</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<!-- Sign-up Section -->
-<div class = "signup" id="sign-up">
-    <div class = "signup__container">
-        <div class="signup__content">
-            <h1>Join the community</h1>
-            <h2>Register your interest</h2>
-            <p>Join our mailing list to register your interest and stay updated on the latest news and developments.</p>
-            
-            <!-- Email Subscription Form -->
-            <form class="signup__form" action="https://formspree.io/f/xjkppdlv" method="POST">
-                <div class="signup__form-group">
-                    <input type="email" 
-                           id="email" 
-                           name="email" 
-                           placeholder="Enter your email address" 
-                           required 
-                           class="signup__email-input">
-                </div>
-                <div class="signup__form-group">
-                    <input type="text" 
-                           id="first-name" 
-                           name="firstName" 
-                           placeholder="First name" 
-                           required
-                           class="signup__name-input">
-                </div>
-                <div class="signup__form-group">
-                    <input type="text" 
-                           id="last-name" 
-                           name="lastName" 
-                           placeholder="Last name" 
-                           required
-                           class="signup__name-input">
-                </div>
-                <div class="signup__form-group">
-                    <label for="referrer" class="sr-only">How did you hear about us?</label>
-                    <select id="referrer" name="referrer" class="signup__select" required>
-                        <option value="" disabled selected hidden>How did you hear about us?</option>
-                        <option value="search">Search engine</option>
-                        <option value="social">Social media</option>
-                        <option value="friend">Friend or family</option>
-                        <option value="event">Event / Meetup</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <!-- Honeypot field (bots fill this, humans won't) -->
-                <div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;">
-                    <label for="website">Website</label>
-                    <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off">
-                </div>
-                <div class="signup__checkbox">
-                    <input type="checkbox" id="privacy" name="privacy" required>
-                    <label for="privacy">I agree to receive marketing emails and accept the privacy policy</label>
-                </div>
-                <button type="submit" class="signup__btn">Subscribe</button>
-                <div class="signup__status" role="status" aria-live="polite"></div>
-
-            </form>
-        </div>
-        <div class = "signup__img-container">
-            <div class = "signup__img-card"><i class="fas fa-users"></i></div>
-        </div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="sr">
+    <div class="section-num">01 — About</div>
+    <h2>The only community<br>safety app you need</h2>
+    <p class="about-body">Whether you're commuting, travelling, or heading out for the night — ALRTAPP connects you to the people and information that matter most to your safety. Real-time location sharing, community-powered alerts, and a one-tap SOS.</p>
+    <div class="about-stats">
+      <div class="astat">
+        <div class="astat-num">Real&#8209;time</div>
+        <div class="astat-label">Location sharing with trusted contacts</div>
+      </div>
+      <div class="astat">
+        <div class="astat-num">1-tap</div>
+        <div class="astat-label">Emergency SOS to your network</div>
+      </div>
+      <div class="astat">
+        <div class="astat-num">24/7</div>
+        <div class="astat-label">Community safety coverage</div>
+      </div>
+      <div class="astat">
+        <div class="astat-num">Local</div>
+        <div class="astat-label">Alerts, news, neighbourhood network</div>
+      </div>
     </div>
-</div>
-
-
-<!-- Footer Section -->
-<div class = "footer__container">
-    <div class = "footer__links">
-        <div class="footer__link--wrapper">
-            <div class="footer__link--items">
-                <h2>About Us</h2>
-                <a href="/">How it works</a>
-                <a href="/">Our mission</a>
-                <a href="/">Blog</a>
-            </div>
-            <div class="footer__link--items">
-                <h2>Contact</h2>
-                <a href="mailto:contact@alrtapp.com">contact@alrtapp.com</a>
-            </div>
-            <div class="footer__link--items">
-                <h2>Social Media</h2>
-                <a href="/">Facebook</a>
-                <a href="/">Instagram</a>
-                <a href="/">LinkedIn</a>
-            </div>
-        </div>
+  </div>
+  <div class="about-aside sr">
+    <div class="aside-block">
+      <div class="aside-tag">The Problem</div>
+      <div class="aside-text">Too many people feel unsafe when out alone — and existing apps don't provide the real-time, community-level support that actually helps.</div>
     </div>
-    <div class="social__media">
-        <div class = "social__media--wrap">
-            <div class = "footer__logo">
-                <a href="/" id ="footer__logo">ALRTAPP</a>
-            </div>
-            <p class = "website__rights">© ALRTAPP 2025. All rights reserved</p>
-            <div class="social__icons">
-                <a href="/" class="social__icons--link"><i class="fab fa-facebook-f"></i></a>
-                <a href="/" class="social__icons--link"><i class="fab fa-instagram"></i></a>
-                <a href="/" class="social__icons--link"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
+    <div class="aside-block">
+      <div class="aside-tag">Our Approach</div>
+      <div class="aside-text">ALRTAPP connects individuals with their trusted circle and local community — so everyone watches out for each other, in real time.</div>
     </div>
-</div>
+    <div class="aside-block">
+      <div class="aside-tag">In Development</div>
+      <div class="aside-text">We're building ALRTAPP now. Register your interest to be first to access the app and help shape how it develops.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="features-intro sr">
+    <div>
+      <div class="section-num">02 — Features</div>
+      <h2>Everything you need<br>to stay safe</h2>
+    </div>
+    <p class="features-note">ALRTAPP is currently under development. Some features may not be available yet.</p>
+  </div>
+  <table class="features-table sr">
+    <tbody>
+      <tr class="active">
+        <td class="ft-num">001</td>
+        <td><div class="ft-name" style="color:var(--orange);">Emergency SOS</div></td>
+        <td class="ft-desc">Trigger an immediate SOS to your trusted contacts and emergency services with a single tap. Your location is shared automatically.</td>
+        <td class="ft-status"><span class="status-pill live">Live</span></td>
+      </tr>
+      <tr>
+        <td class="ft-num">002</td>
+        <td><div class="ft-name" style="color:var(--blue);">Location Sharing</div></td>
+        <td class="ft-desc">Share your real-time location with the people you trust. Let them know you're safe, or share your route before a late night out.</td>
+        <td class="ft-status"><span class="status-pill live">Live</span></td>
+      </tr>
+      <tr>
+        <td class="ft-num">003</td>
+        <td><div class="ft-name" style="color:var(--orange);">Community Alerts</div></td>
+        <td class="ft-desc">Receive and contribute hyperlocal safety alerts from verified community members in your area. Know what's happening nearby.</td>
+        <td class="ft-status"><span class="status-pill live">Live</span></td>
+      </tr>
+      <tr>
+        <td class="ft-num">004</td>
+        <td><div class="ft-name" style="color:var(--caution);">Local News</div></td>
+        <td class="ft-desc">Curated local news and safety advisories relevant to your neighbourhood and daily routes.</td>
+        <td class="ft-status"><span class="status-pill soon">Soon</span></td>
+      </tr>
+      <tr>
+        <td class="ft-num">005</td>
+        <td><div class="ft-name" style="color:var(--safe);">Meet Neighbours</div></td>
+        <td class="ft-desc">Build a trusted local safety network with verified residents nearby. A connected community is a safer community.</td>
+        <td class="ft-status"><span class="status-pill soon">Soon</span></td>
+      </tr>
+      <tr>
+        <td class="ft-num">006</td>
+        <td><div class="ft-name" style="color:var(--mist);">Safety Tips</div></td>
+        <td class="ft-desc">Expert-curated guidance tailored to your location, time of day, and active alerts in your area.</td>
+        <td class="ft-status"><span class="status-pill soon">Soon</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SIGN UP -->
+<section id="sign-up">
+  <div class="signup-grid sr">
+    <div class="signup-left">
+      <div>
+        <div class="section-num">03 — Early Access</div>
+        <div class="signup-headline">Join the<br><span>community.</span><br>Stay first.</div>
+        <p class="signup-note">Register your interest and be the first to know when ALRTAPP launches. Your feedback shapes the product.</p>
+      </div>
+      <div style="margin-top:40px;">
+        <div style="font-size:0.6rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--slate); margin-bottom:10px;">Contact</div>
+        <a href="mailto:contact@alrtapp.com" style="font-size:0.95rem; color:var(--mist); text-decoration:none; transition:color 0.15s;"
+           onmouseover="this.style.color='#FB923C'" onmouseout="this.style.color=''">contact@alrtapp.com</a>
+      </div>
+    </div>
+    <div class="signup-right">
+      <div class="field">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label>First Name</label>
+        <input type="text" placeholder="Your first name">
+      </div>
+      <div class="field">
+        <label>How did you hear about us?</label>
+        <select>
+          <option value="" disabled selected>Select…</option>
+          <option>Search engine</option>
+          <option>Social media</option>
+          <option>Friend or family</option>
+          <option>Event / Meetup</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="consent-row">
+        <input type="checkbox" id="consent">
+        <label for="consent">I agree to receive marketing emails and accept the <a href="#">privacy policy</a></label>
+      </div>
+      <div class="submit-row">
+        <button class="submit-btn">Subscribe →</button>
+        <span class="submit-note">No spam.<br>Unsubscribe any time.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <svg width="110" height="72" viewBox="0 0 176 116" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+        <defs>
+          <linearGradient id="ft_grad" x1="2" y1="23" x2="171" y2="94" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FB923C"/>
+            <stop offset="100%" stop-color="#C2410C"/>
+          </linearGradient>
+          <linearGradient id="ft_dot_grad" x1="151" y1="75" x2="171" y2="94" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FED7AA"/>
+            <stop offset="100%" stop-color="#EA580C"/>
+          </linearGradient>
+        </defs>
+        <path d="M19.3636 93.8182C16.0227 93.8182 13.0682 93.2727 10.5 92.1818C7.95455 91.0682 5.95455 89.3864 4.5 87.1364C3.04545 84.8864 2.31818 82.0227 2.31818 78.5455C2.31818 75.6818 2.80682 73.2386 3.78409 71.2159C4.76136 69.1705 6.125 67.5 7.875 66.2045C9.625 64.9091 11.6591 63.9205 13.9773 63.2386C16.3182 62.5568 18.8409 62.1136 21.5455 61.9091C24.4773 61.6818 26.8295 61.4091 28.6023 61.0909C30.3977 60.75 31.6932 60.2841 32.4886 59.6932C33.2841 59.0795 33.6818 58.2727 33.6818 57.2727V57.1364C33.6818 55.7727 33.1591 54.7273 32.1136 54C31.0682 53.2727 29.7273 52.9091 28.0909 52.9091C26.2955 52.9091 24.8295 53.3068 23.6932 54.1023C22.5795 54.875 21.9091 56.0682 21.6818 57.6818H4.36364C4.59091 54.5 5.60227 51.5682 7.39773 48.8864C9.21591 46.1818 11.8636 44.0227 15.3409 42.4091C18.8182 40.7727 23.1591 39.9545 28.3636 39.9545C32.1136 39.9545 35.4773 40.3977 38.4545 41.2841C41.4318 42.1477 43.9659 43.3636 46.0568 44.9318C48.1477 46.4773 49.7386 48.2955 50.8295 50.3864C51.9432 52.4545 52.5 54.7045 52.5 57.1364V93H34.9091V85.6364H34.5C33.4545 87.5909 32.1818 89.1705 30.6818 90.375C29.2045 91.5795 27.5114 92.4545 25.6023 93C23.7159 93.5455 21.6364 93.8182 19.3636 93.8182ZM25.5 81.9545C26.9318 81.9545 28.2727 81.6591 29.5227 81.0682C30.7955 80.4773 31.8295 79.625 32.625 78.5114C33.4205 77.3977 33.8182 76.0455 33.8182 74.4545V70.0909C33.3182 70.2955 32.7841 70.4886 32.2159 70.6705C31.6705 70.8523 31.0795 71.0227 30.4432 71.1818C29.8295 71.3409 29.1705 71.4886 28.4659 71.625C27.7841 71.7614 27.0682 71.8864 26.3182 72C24.8636 72.2273 23.6705 72.6023 22.7386 73.125C21.8295 73.625 21.1477 74.25 20.6932 75C20.2614 75.7273 20.0455 76.5455 20.0455 77.4545C20.0455 78.9091 20.5568 80.0227 21.5795 80.7955C22.6023 81.5682 23.9091 81.9545 25.5 81.9545Z" fill="url(#ft_grad)"/>
+        <path d="M73.5909 23.1818V93H54.7727V23.1818H73.5909Z" fill="url(#ft_grad)"/>
+        <path d="M76.7727 93V40.6364H95.0455V50.5909H95.5909C96.5455 46.9091 98.0568 44.2159 100.125 42.5114C102.216 40.8068 104.659 39.9545 107.455 39.9545C108.273 39.9545 109.08 40.0227 109.875 40.1591C110.693 40.2727 111.477 40.4432 112.227 40.6705V56.7273C111.295 56.4091 110.148 56.1705 108.784 56.0114C107.42 55.8523 106.25 55.7727 105.273 55.7727C103.432 55.7727 101.773 56.1932 100.295 57.0341C98.8409 57.8523 97.6932 59.0114 96.8523 60.5114C96.0114 61.9886 95.5909 63.7273 95.5909 65.7273V93H76.7727Z" fill="url(#ft_grad)"/>
+        <path d="M149 40.6364V54.2727H114.5V40.6364H149ZM121.182 28.0909H140V76.1591C140 76.8864 140.125 77.5 140.375 78C140.625 78.4773 141.011 78.8409 141.534 79.0909C142.057 79.3182 142.727 79.4318 143.545 79.4318C144.114 79.4318 144.773 79.3636 145.523 79.2273C146.295 79.0909 146.864 78.9773 147.227 78.8864L149.955 92.1136C149.114 92.3636 147.909 92.6705 146.341 93.0341C144.795 93.3977 142.955 93.6364 140.818 93.75C136.5 93.9773 132.875 93.5341 129.943 92.4205C127.011 91.2841 124.807 89.5 123.33 87.0682C121.852 84.6364 121.136 81.5909 121.182 77.9318V28.0909Z" fill="url(#ft_grad)"/>
+        <path d="M161 94.0909C158.364 94.0909 156.102 93.1705 154.216 91.3295C152.352 89.4659 151.432 87.2045 151.455 84.5455C151.432 81.9545 152.352 79.7386 154.216 77.8977C156.102 76.0568 158.364 75.1364 161 75.1364C163.5 75.1364 165.705 76.0568 167.614 77.8977C169.545 79.7386 170.523 81.9545 170.545 84.5455C170.523 86.3182 170.057 87.9318 169.148 89.3864C168.261 90.8182 167.102 91.9659 165.67 92.8295C164.239 93.6705 162.682 94.0909 161 94.0909Z" fill="url(#ft_dot_grad)"/>
+      </svg>
+      <p class="footer-mission">The community-driven safety app keeping you connected to the people and information that matter most.</p>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">How it works</a></li>
+        <li><a href="#">Our mission</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:contact@alrtapp.com">contact@alrtapp.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Social</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© ALRTAPP 2025. All rights reserved.</span>
+    <div class="footer-socials">
+      <a class="soc" href="#">Facebook</a>
+      <a class="soc" href="#">Instagram</a>
+      <a class="soc" href="#">LinkedIn</a>
+    </div>
+  </div>
+</footer>
 
 <script src="app.js"></script>
-<script>
-  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/speed-insights/script.js"></script></body>
-<script defer src="/_vercel/insights/script.js"></script>
+</body>
 </html>
