@@ -97,6 +97,7 @@ nav > a { flex-shrink: 0; }
   text-decoration: none; transition: color 0.15s;
 }
 .nav-links a:hover { color: var(--white); }
+.nav-links a.is-active { color: var(--white); }
 
 .nav-cta {
   height: 34px; padding: 0 18px;
@@ -152,6 +153,7 @@ nav > a { flex-shrink: 0; }
   transition: color 0.15s;
 }
 .mobile-menu a:hover { color: var(--orange); }
+.mobile-menu a.is-active { color: var(--orange); }
 .mobile-menu .mobile-cta {
   margin-top: 32px;
   background: var(--orange); color: var(--night); border: none;
@@ -165,7 +167,7 @@ nav > a { flex-shrink: 0; }
 
 /* ── TICKER ── */
 .ticker {
-  position: fixed; top: 60px; left: 0; right: 0; z-index: 499;
+  position: fixed; top: 59px; left: 0; right: 0; z-index: 499;
   border-top: 1px solid rgba(251,146,60,0.6);
   border-bottom: 1px solid rgba(251,146,60,0.6);
   background: rgba(10,14,26,1);
@@ -663,7 +665,7 @@ footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 0 8%; }
   .ops-map { min-height: 200px; }
   .ops-header-label { font-size: 0.58rem; }
 
-  #about { padding: 60px 5%; gap: 36px; }
+  #about { padding: 65px 5%; gap: 36px; }
   h2 { font-size: clamp(2rem, 9vw, 2.8rem); }
   .about-body { font-size: 0.92rem; }
   .about-stats { grid-template-columns: 1fr 1fr; }
