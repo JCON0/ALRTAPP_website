@@ -1,6 +1,11 @@
 // ── HAMBURGER MENU ──
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
+const footerYear = document.getElementById('footerYear');
+
+if (footerYear) {
+  footerYear.textContent = new Date().getFullYear();
+}
 
 function closeMobileMenu() {
   hamburger.classList.remove('open');
@@ -21,6 +26,91 @@ function tick() {
 }
 setInterval(tick, 1000);
 tick();
+
+// ── TICKER (ANIMATION) ──
+(function initTicker() {
+  const track = document.querySelector('.ticker-track');
+  const inner = document.querySelector('.ticker-inner');
+  if (!track || !inner) return;
+
+  const speedPxPerSecond = 58;
+  let baseWidth = 0;
+  let offset = 0;
+  let lastTime = performance.now();
+  let frameId = null;
+
+  const getSignatures = (items) => {
+    return items.map((item) => {
+      const dot = item.querySelector('.t-dot');
+      const dotColor = dot ? dot.getAttribute('style') || '' : '';
+      return `${item.textContent.trim()}|${dotColor}`;
+    });
+  };
+
+  const findBaseCount = (signatures) => {
+    const total = signatures.length;
+    for (let size = 1; size <= total; size += 1) {
+      if (total % size !== 0) continue;
+      let repeats = true;
+      for (let index = 0; index < total; index += 1) {
+        if (signatures[index] !== signatures[index % size]) {
+          repeats = false;
+          break;
+        }
+      }
+      if (repeats) return size;
+    }
+    return total;
+  };
+
+  const buildTicker = () => {
+    const items = Array.from(inner.querySelectorAll('.ticker-item'));
+    if (!items.length) return;
+
+    const signatures = getSignatures(items);
+    const baseCount = findBaseCount(signatures);
+    const baseItems = items.slice(0, baseCount).map((item) => item.cloneNode(true));
+
+    inner.innerHTML = '';
+    let repeats = 0;
+    while (repeats < 2 || inner.scrollWidth < track.clientWidth * 2.2) {
+      baseItems.forEach((item) => inner.appendChild(item.cloneNode(true)));
+      repeats += 1;
+      if (repeats > 12) break;
+    }
+
+    baseWidth = 0;
+    Array.from(inner.querySelectorAll('.ticker-item')).slice(0, baseCount).forEach((item) => {
+      baseWidth += item.getBoundingClientRect().width;
+    });
+
+    offset = 0;
+    inner.style.transform = 'translate3d(0, 0, 0)';
+  };
+
+  const animate = (time) => {
+    const deltaSeconds = (time - lastTime) / 1000;
+    lastTime = time;
+
+    if (baseWidth > 0) {
+      offset += speedPxPerSecond * deltaSeconds;
+      if (offset >= baseWidth) offset -= baseWidth;
+      inner.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    }
+
+    frameId = requestAnimationFrame(animate);
+  };
+
+  const restart = () => {
+    if (frameId) cancelAnimationFrame(frameId);
+    buildTicker();
+    lastTime = performance.now();
+    frameId = requestAnimationFrame(animate);
+  };
+
+  window.addEventListener('resize', restart);
+  restart();
+})();
 
 // ── CUSTOM CURSOR ──
 const cur  = document.getElementById('cursor');
