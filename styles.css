@@ -237,7 +237,7 @@ h1 {
 }
 h1 .line-ghost {
   display: block;
-  -webkit-text-stroke: 1.75px rgba(251,146,60,0.5);
+  -webkit-text-stroke: 1.2px rgba(251,146,60,0.5);
   color: transparent;
 }
 h1 .line-solid { display: block; color: var(--white); }
@@ -648,7 +648,7 @@ footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 0 8%; }
   nav { padding: 0 5%; height: 56px; }
   .logo-nav { width: 88px; }
 
-  .ticker { top: 56px; }
+  .ticker { top: 55px; }
   .mobile-menu { top: 92px; }
 
   #home { padding-top: 92px; }
