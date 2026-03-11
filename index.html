@@ -24,7 +24,7 @@
     <li><a href="about.html">About</a></li>
     <li><a href="#signup">Sign Up</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('sign-up').scrollIntoView({behavior:'smooth'})">Register Interest</button>
+  <button class="nav-cta" onclick="scrollToSignUp()">Register Interest</button>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
@@ -35,7 +35,7 @@
   <a href="index.html" onclick="closeMobileMenu()">Home</a>
   <a href="about.html" onclick="closeMobileMenu()">About</a>
   <a href="#signup" onclick="closeMobileMenu()">Sign Up</a>
-  <button class="mobile-cta" onclick="closeMobileMenu(); document.getElementById('sign-up').scrollIntoView({behavior:'smooth'})">Register Interest →</button>
+  <button class="mobile-cta" onclick="closeMobileMenu(); scrollToSignUp()">Register Interest →</button>
 </div>
 
 <!-- TICKER -->
@@ -64,7 +64,7 @@
     </h1>
     <p class="hero-desc">The community-driven safety companion that keeps you connected in real time. Location sharing, local alerts, and one-tap SOS — wherever you go.</p>
     <div class="hero-ctas">
-      <button class="cta-main" onclick="document.getElementById('sign-up').scrollIntoView({behavior:'smooth'})">
+      <button class="cta-main" onclick="scrollToSignUp()">
         Register Interest <span class="cta-arrow">→</span>
       </button>
       <button class="cta-sec" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">

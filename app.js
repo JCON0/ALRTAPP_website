@@ -7,6 +7,28 @@ if (footerYear) {
   footerYear.textContent = new Date().getFullYear();
 }
 
+function scrollToSignUp(behavior = 'smooth') {
+  const signUpSection = document.getElementById('sign-up') || document.getElementById('signup');
+  if (!signUpSection) return;
+
+  const rect = signUpSection.getBoundingClientRect();
+  const targetTop = window.scrollY + rect.top - ((window.innerHeight - rect.height) / 2);
+  const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+  const top = Math.max(0, Math.min(targetTop, maxScrollTop));
+
+  window.scrollTo({ top, behavior });
+}
+
+window.scrollToSignUp = scrollToSignUp;
+
+document.querySelectorAll('a[href="#signup"], a[href="#sign-up"]').forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeMobileMenu();
+    scrollToSignUp('smooth');
+  });
+});
+
 function closeMobileMenu() {
   if (!hamburger || !mobileMenu) return;
   hamburger.classList.remove('open');
