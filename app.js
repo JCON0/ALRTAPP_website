@@ -12,7 +12,10 @@ function scrollToSignUp(behavior = 'smooth') {
   if (!signUpSection) return;
 
   const rect = signUpSection.getBoundingClientRect();
-  const targetTop = window.scrollY + rect.top - ((window.innerHeight - rect.height) / 2);
+  const isMobile = window.matchMedia('(max-width: 640px)').matches;
+  const targetTop = isMobile
+    ? window.scrollY + rect.top - 104
+    : window.scrollY + rect.top - ((window.innerHeight - rect.height) / 2);
   const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
   const top = Math.max(0, Math.min(targetTop, maxScrollTop));
 
