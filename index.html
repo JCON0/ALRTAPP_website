@@ -20,9 +20,9 @@
   </a>
   <div class="nav-status"><div class="nav-status-dot"></div>Under Development</div>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#sign-up">Sign Up</a></li>
+    <li><a href="#signup">Sign Up</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('sign-up').scrollIntoView({behavior:'smooth'})">Register Interest</button>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
@@ -32,9 +32,9 @@
 
 <!-- MOBILE MENU DRAWER -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobileMenu()">Home</a>
   <a href="about.html" onclick="closeMobileMenu()">About</a>
-  <a href="#features" onclick="closeMobileMenu()">Features</a>
-  <a href="#sign-up" onclick="closeMobileMenu()">Sign Up</a>
+  <a href="#signup" onclick="closeMobileMenu()">Sign Up</a>
   <button class="mobile-cta" onclick="closeMobileMenu(); document.getElementById('sign-up').scrollIntoView({behavior:'smooth'})">Register Interest →</button>
 </div>
 
@@ -226,6 +226,7 @@
 </section>
 
 <!-- SIGN UP -->
+<div id="signup"></div>
 <section id="sign-up">
   <div class="signup-grid sr">
     <div class="signup-left">

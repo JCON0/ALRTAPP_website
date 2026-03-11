@@ -20,9 +20,9 @@
   </a>
   <div class="nav-status"><div class="nav-status-dot"></div>Under Development</div>
   <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="is-active">About</a></li>
-    <li><a href="index.html#features">Features</a></li>
-    <li><a href="index.html#sign-up">Sign Up</a></li>
+    <li><a href="#signup">Sign Up</a></li>
   </ul>
   <button class="nav-cta" onclick="window.location.href='index.html#sign-up'">Register Interest</button>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
@@ -32,9 +32,9 @@
 
 <!-- MOBILE MENU DRAWER -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMobileMenu()">Home</a>
   <a href="about.html" class="is-active" onclick="closeMobileMenu()">About</a>
-  <a href="index.html#features" onclick="closeMobileMenu()">Features</a>
-  <a href="index.html#sign-up" onclick="closeMobileMenu()">Sign Up</a>
+  <a href="#signup" onclick="closeMobileMenu()">Sign Up</a>
   <button class="mobile-cta" onclick="closeMobileMenu(); window.location.href='index.html#sign-up'">Register Interest →</button>
 </div>
 
@@ -95,6 +95,7 @@
   </div>
 </section>
 
+<div id="signup"></div>
 <section id="sign-up" style="padding-top:0;">
   <div class="sr" style="border:1px solid rgba(255,255,255,0.06); padding:52px 6%; background:var(--charcoal); display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;">
     <div>
