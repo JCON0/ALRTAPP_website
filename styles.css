@@ -264,9 +264,13 @@ h1 .line-orange { display: block; color: var(--orange); }
   transition: background 0.15s;
   display: flex; align-items: center; gap: 10px;
 }
-.cta-main:hover { background: var(--orange-soft); }
+.cta-main:active { background: var(--orange-soft); }
 .cta-arrow { transition: transform 0.2s; }
-.cta-main:hover .cta-arrow { transform: translateX(4px); }
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-main:hover { background: var(--orange-soft); }
+  .cta-main:hover .cta-arrow { transform: translateX(4px); }
+}
 
 .cta-sec {
   background: transparent; color: var(--mist);
