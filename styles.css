@@ -408,6 +408,16 @@ h1 .line-orange { display: block; color: var(--orange); }
   gap: 80px; align-items: start;
   border-top: 1px solid rgba(255,255,255,0.05);
 }
+.about-page #about {
+  min-height: calc(100vh - 96px);
+  padding-top: 132px;
+  padding-bottom: 0;
+}
+.about-page #about > .sr,
+.about-page #about > .about-aside {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
 .section-num {
   font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
   text-transform: uppercase; color: var(--orange); margin-bottom: 18px;
@@ -488,6 +498,20 @@ h2 {
 
 /* ── SIGN UP ── */
 #sign-up { padding: 0 8% 120px; }
+.signup-promo {
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 52px 6%;
+  background: var(--charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.signup-promo-copy {
+  margin-top: 8px;
+  max-width: 620px;
+}
 .signup-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   border: 1px solid rgba(255,255,255,0.06);
@@ -623,6 +647,9 @@ footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 0 8%; }
   .hero-right { min-height: 400px; border-left: none; }
 
   #about { grid-template-columns: 1fr; gap: 48px; padding: 80px 6%; }
+  .about-page #about { min-height: auto; padding-top: 96px; padding-bottom: 0; }
+  .about-page #about > .sr,
+  .about-page #about > .about-aside { padding-top: 60px; padding-bottom: 48px; }
   .about-aside { padding-top: 0; }
 
   #features { padding: 80px 6% 80px; }
@@ -631,6 +658,7 @@ footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 0 8%; }
   .ft-num { display: none; }
   .features-table td { padding: 22px 20px; }
 
+  .signup-promo { padding: 44px 48px; }
   .signup-grid { grid-template-columns: 1fr; }
   .signup-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 52px 48px; }
   .signup-right { padding: 48px; }
@@ -666,6 +694,9 @@ footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 0 8%; }
   .ops-header-label { font-size: 0.58rem; }
 
   #about { padding: 65px 5%; gap: 36px; }
+  .about-page #about { padding-top: 92px; padding-bottom: 0; }
+  .about-page #about > .sr,
+  .about-page #about > .about-aside { padding-top: 48px; padding-bottom: 40px; }
   h2 { font-size: clamp(2rem, 9vw, 2.8rem); }
   .about-body { font-size: 0.92rem; }
   .about-stats { grid-template-columns: 1fr 1fr; }
@@ -680,6 +711,7 @@ footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 0 8%; }
   .ft-status { width: auto; }
 
   #sign-up { padding: 0 5% 60px; }
+  .signup-promo { padding: 34px 28px; }
   .signup-left { padding: 40px 28px; }
   .signup-right { padding: 36px 28px; }
   .signup-headline { font-size: 2.2rem; }
