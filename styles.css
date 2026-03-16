@@ -264,13 +264,9 @@ h1 .line-orange { display: block; color: var(--orange); }
   transition: background 0.15s;
   display: flex; align-items: center; gap: 10px;
 }
-.cta-main:active { background: var(--orange-soft); }
+.cta-main:hover { background: var(--orange-soft); }
 .cta-arrow { transition: transform 0.2s; }
-
-@media (hover: hover) and (pointer: fine) {
-  .cta-main:hover { background: var(--orange-soft); }
-  .cta-main:hover .cta-arrow { transform: translateX(4px); }
-}
+.cta-main:hover .cta-arrow { transform: translateX(4px); }
 
 .cta-sec {
   background: transparent; color: var(--mist);
@@ -411,11 +407,6 @@ h1 .line-orange { display: block; color: var(--orange); }
   display: grid; grid-template-columns: 3fr 2fr;
   gap: 80px; align-items: start;
   border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-/* About page starts with #about below fixed nav+ticker, so it needs extra top space. */
-body.about-page #about {
-  padding-top: 140px;
 }
 .section-num {
   font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
@@ -675,7 +666,6 @@ footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 0 8%; }
   .ops-header-label { font-size: 0.58rem; }
 
   #about { padding: 65px 5%; gap: 36px; }
-  body.about-page #about { padding-top: 110px; }
   h2 { font-size: clamp(2rem, 9vw, 2.8rem); }
   .about-body { font-size: 0.92rem; }
   .about-stats { grid-template-columns: 1fr 1fr; }
